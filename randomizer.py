@@ -1,8 +1,9 @@
 import random
 f = open("MaddenFile.txt", "w")
 team_List = ["Cardinals", "Falcons", "Panthers", "Ravens", "Bills", "Bears", "Bengals", "Browns", "Cowboys", "Broncos", "Lions", "Packers", "Texans", "Colts", "Jaguars", "Chiefs", "Raiders", "Chargers", "Rams", "Dolphins", "Vikings", "Patriots", "Saints", "Giants", "Jets", "Eagles", "Steelers", "49ers", "Seahawks", "Buccaneers", "Titans", "Commanders" ]
+position_list = ["QB", "RB", "WR", "FB", "TE", "LT", "RT", "LG", "RG", "C", "DT", "DE", "MLB", "LOLB", "ROLB", "CB", "FS", "SS", "K", "P"]
 def randomTeamForUsers():
-    numOfUsers = int(input ("How many players will ther be: "))
+    numOfUsers = int(input ("How many players will there be: "))
     f = open("MaddenFile.txt", "w")
     
     for i in range(numOfUsers):
@@ -14,7 +15,29 @@ def randomTeamForUsers():
         print(team_List)
         f.write(nameAndTeam)
 
-            
+def numOfRounds():
+    numRounds = []
+    numPickPerPos = {}
+    for x in range(len(position_list)):
+        keys = position_list[x]
+        howManyOfPos = int(input("How many " + keys + "s would you like to draft: "))
+        values = int(howManyOfPos)
+        numPickPerPos[keys] = values
+        numRounds.append(howManyOfPos)
+
+    print(numPickPerPos)    
+    print(sum(numRounds))
+    print("You will draft for a total of ", sum(numRounds), " rounds")
+
+#def randomPosition():
+  #  for x in range(len(position_list)):
+   #     print(position_list[x])
+   #     howManyOfPos = int(input("How many of this position would you like to draft: "))
+        
+
+        
+    
         
 randomTeamForUsers()
+numOfRounds()
 f.close()
