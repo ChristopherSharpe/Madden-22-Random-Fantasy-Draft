@@ -15,29 +15,36 @@ def randomTeamForUsers():
         print(team_List)
         f.write(nameAndTeam)
 
+numRounds = []
+numPickPerPos = {}
+newNumPickPerPos = {}
+
 def numOfRounds():
-    numRounds = []
-    numPickPerPos = {}
     for x in range(len(position_list)):
         keys = position_list[x]
         howManyOfPos = int(input("How many " + keys + "s would you like to draft: "))
         values = int(howManyOfPos)
         numPickPerPos[keys] = values
         numRounds.append(howManyOfPos)
-
+         
     print(numPickPerPos)    
     print(sum(numRounds))
     print("You will draft for a total of ", sum(numRounds), " rounds")
 
-#def randomPosition():
-  #  for x in range(len(position_list)):
-   #     print(position_list[x])
-   #     howManyOfPos = int(input("How many of this position would you like to draft: "))
-        
 
-        
-    
-        
+def randomizedPositions():
+    pickForEachRound = {}
+    key = 0
+    newKey ="Round: " + str(key + 1)
+    posKeys = random.choice(position_list)
+    pickForEachRound[newKey] = posKeys
+    print(pickForEachRound)
+    print(numPickPerPos)
+
+
 randomTeamForUsers()
 numOfRounds()
+randomizedPositions()
+
+
 f.close()
