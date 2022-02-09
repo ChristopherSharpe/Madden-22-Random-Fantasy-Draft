@@ -1,4 +1,6 @@
 import random
+import csv
+
 f = open("MaddenFile.txt", "w")
 team_List = ["Cardinals", "Falcons", "Panthers", "Ravens", "Bills", "Bears", "Bengals", "Browns", "Cowboys", "Broncos", "Lions", "Packers", "Texans", "Colts", "Jaguars", "Chiefs", "Raiders", "Chargers", "Rams", "Dolphins", "Vikings", "Patriots", "Saints", "Giants", "Jets", "Eagles", "Steelers", "49ers", "Seahawks", "Buccaneers", "Titans", "Commanders" ]
 position_list = ["QB", "RB", "WR", "FB", "TE", "LT", "RT", "LG", "RG", "C", "DT", "DE", "MLB", "LOLB", "ROLB", "CB", "FS", "SS", "K", "P"]
@@ -43,8 +45,23 @@ def randomizedPositions():
         pickForEachRound[newKey] = posKeys
         rounds = rounds - 1
         key = key + 1
-    print(pickForEachRound)
         
+        
+        
+        for keys, values in numPickPerPos.items():
+            if keys == posKeys:
+                if values != 0:
+                    numPickPerPos[keys] = values - 1
+                # If the value for random key chosen is 0, return to line 42, or just look for another position with a key whose value > 0
+                elif values == 0:
+                    Do Something  
+                # When all positions have been chosen, break out of loop and contine to next. 
+                else:
+                    break
+    print(pickForEachRound)
+    print(numPickPerPos)
+                  
+    
 
 
 randomTeamForUsers()
