@@ -34,12 +34,17 @@ def numOfRounds():
 
 def randomizedPositions():
     pickForEachRound = {}
-    key = 0
-    newKey ="Round: " + str(key + 1)
-    posKeys = random.choice(position_list)
-    pickForEachRound[newKey] = posKeys
+    rounds = sum(numRounds)
+    key = 1
+    
+    while rounds > 0:
+        newKey ="Round: ", key 
+        posKeys = random.choice(position_list)
+        pickForEachRound[newKey] = posKeys
+        rounds = rounds - 1
+        key = key + 1
     print(pickForEachRound)
-    print(numPickPerPos)
+        
 
 
 randomTeamForUsers()
